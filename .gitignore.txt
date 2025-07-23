@@ -1,0 +1,69 @@
+# ############# #
+# Unity Project #
+# ############# #
+
+# Carpetas generadas por Unity que deben ser ignoradas.
+# La carpeta Library es la más importante de ignorar, ya que se regenera
+# automáticamente a partir de las carpetas Assets y ProjectSettings.
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# Archivos de configuración de usuario. Contienen preferencias locales del editor.
+/[Uu]serSettings/
+
+# ############ #
+# IDE y Tools  #
+# ############ #
+
+# Visual Studio / Rider
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+# Carpetas específicas de IDEs
+.vs/
+.idea/
+.vscode/
+
+# ################# #
+# Archivos de OS    #
+# ################# #
+
+# Mac
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+
+# Windows
+Thumbs.db
+
+# ##################### #
+# Otros archivos        #
+# ##################### #
+
+# Paquetes de Unity descargados de la Asset Store.
+# Es mejor registrar qué paquetes se necesitan en lugar de subir los archivos.
+*.unitypackage
+
+# Archivos de volcado de memoria o reportes de crash.
+*.dmp
+crash_*.txt
+*.crash
