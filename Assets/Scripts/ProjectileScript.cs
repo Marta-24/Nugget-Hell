@@ -6,13 +6,21 @@ public class ProjectileController : MonoBehaviour
     public float speed = 20f;
     public float lifetime = 3f;
 
-    private Rigidbody rb;
-
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
-
         Destroy(gameObject, lifetime);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<EnemyAI>(out EnemyAI enemy))
+        {
+            enemy.TakeDamage(1);
+
+            Destroy(gameObject);
+        }
+    }
+
 }

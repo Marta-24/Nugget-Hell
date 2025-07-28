@@ -10,9 +10,14 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
 
+    [Header("Salud y UI")]
+    public int maxHealth = 10;
+    public UIManager uiManager;
+
     [Header("Capa del Suelo")]
     public LayerMask groundMask;
 
+    private int currentHealth;
     private Rigidbody rb;
     private Vector3 moveInput;
     private Camera mainCamera;
@@ -23,6 +28,15 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
     }
 
+    void Start()
+    {
+        currentHealth = maxHealth;
+        if (uiManager != null)
+        {
+            uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+        }
+    }
+
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -31,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if (moveInput != Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveInput);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveInput), rotationSpeed * Time.deltaTime);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -41,25 +54,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
-    }
-
+    void FixedUpdate() { rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime); }
     void Fire()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, groundMask))
         {
-            Vector3 projectileDirection = hitInfo.point - firePoint.position;
-            projectileDirection.y = 0f;
-            Quaternion projectileRotation = Quaternion.LookRotation(projectileDirection);
-
-            if (projectilePrefab != null && firePoint != null)
-            {
-                Instantiate(projectilePrefab, firePoint.position, projectileRotation);
-            }
+            Vector3 dir = hitInfo.point - firePoint.position;
+            dir.y = 0f;
+            Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(dir));
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("¡El jugador ha muerto! GAME OVER");
+        this.enabled = false;
     }
 }
