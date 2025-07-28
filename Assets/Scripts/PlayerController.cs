@@ -81,5 +81,10 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("¡El jugador ha muerto! GAME OVER");
         this.enabled = false;
+
+        if (uiManager != null)
+        {
+            uiManager.ShowLoseScreen();
+        }
     }
 }

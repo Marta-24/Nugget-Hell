@@ -82,8 +82,6 @@ public class EnemyAI : MonoBehaviour
             {
                 Debug.LogWarning("¡ERROR! El objeto tiene la etiqueta 'Player' pero no se encontró el script PlayerController.");
             }
-
-            Die();
         }
     }
 }

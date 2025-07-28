@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\facecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\facecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\nuggethell\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\projectilescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\projectilescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\assets\\scripts\\facecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\facecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\nuggethell\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\nuggethell\\assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\nuggethell\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FC9AD6A-22E0-598C-9FC8-474F5ED2A12A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,50 +34,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAowFQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-28T19:05:36.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UIManager.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\UIManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\UIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-28T19:05:07.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAmwBIAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-28T19:04:58.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "FaceCamera.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\FaceCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FaceCamera.cs",
@@ -90,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ProjectileScript.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\ProjectileScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ProjectileScript.cs",
@@ -98,18 +98,17 @@
               "RelativeToolTip": "Assets\\Scripts\\ProjectileScript.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T18:22:57.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T18:22:57.073Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "EnemyAI.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\EnemyAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyAI.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\NuggetHell\\Assets\\Scripts\\EnemyAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyAI.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAwwFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-28T18:22:38.417Z",
               "EditorCaption": ""

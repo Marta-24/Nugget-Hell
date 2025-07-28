@@ -10,10 +10,16 @@ public class GameManager : MonoBehaviour
         public float timeBetweenSpawns;
     }
 
+    [Header("Configuración de Olas")]
     public Wave[] waves;
     public Transform[] spawnPoints;
     public GameObject enemyPrefab;
     public float timeBetweenWaves = 5f;
+
+    [Header("Condición de Victoria de Prueba")]
+    [Tooltip("Número de enemigos que hay que matar para ganar.")]
+    public int enemiesToKillForWin = 3;
+    private int totalEnemiesKilled = 0;
 
     private int currentWaveIndex = 0;
     private int enemiesRemainingToSpawn;
@@ -29,24 +35,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("GameManager ha iniciado. Empezando la primera ola...");
         StartCoroutine(StartNextWave());
     }
 
     IEnumerator StartNextWave()
     {
-        Debug.Log("StartNextWave llamado. Índice de ola actual: " + currentWaveIndex);
         if (currentWaveIndex < waves.Length)
         {
-            Debug.Log("Esperando " + timeBetweenWaves + " segundos para la siguiente ola.");
             yield return new WaitForSeconds(timeBetweenWaves);
-
-            Debug.Log("Iniciando Corutina SpawnWave.");
             StartCoroutine(SpawnWave());
         }
         else
         {
             Debug.Log("¡Todas las olas completadas! HAS GANADO");
+            FindObjectOfType<UIManager>().ShowWinScreen();
         }
     }
 
@@ -71,6 +73,18 @@ public class GameManager : MonoBehaviour
 
     public void OnEnemyDied()
     {
+        totalEnemiesKilled++;
+        Debug.Log("Enemigo muerto. Total de muertes: " + totalEnemiesKilled);
+
+        if (totalEnemiesKilled >= enemiesToKillForWin)
+        {
+            Debug.Log("¡Objetivo de muertes alcanzado! Mostrando pantalla de victoria.");
+            FindObjectOfType<UIManager>().ShowWinScreen();
+
+            StopAllCoroutines();
+            return;
+        }
+
         enemiesAlive--;
         if (enemiesAlive <= 0 && enemiesRemainingToSpawn == 0)
         {
