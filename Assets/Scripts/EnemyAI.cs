@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -67,21 +68,27 @@ public class EnemyAI : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Enemigo ha chocado con: " + collision.gameObject.name);
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("El objeto tiene la etiqueta 'Player'. Intentando hacer daño...");
-
             if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
             {
-                Debug.Log("PlayerController encontrado. Haciendo 1 de daño.");
                 player.TakeDamage(1);
             }
-            else
-            {
-                Debug.LogWarning("¡ERROR! El objeto tiene la etiqueta 'Player' pero no se encontró el script PlayerController.");
-            }
+
+            StartCoroutine(HandleCollision());
+        }
+    }
+
+    IEnumerator HandleCollision()
+    {
+        agent.enabled = false;
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (this != null)
+        {
+            agent.enabled = true;
+
         }
     }
 }

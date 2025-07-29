@@ -57,12 +57,22 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() { rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime); }
     void Fire()
     {
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, groundMask))
+
+        if (playerPlane.Raycast(ray, out float distance))
         {
-            Vector3 dir = hitInfo.point - firePoint.position;
-            dir.y = 0f;
-            Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(dir));
+            Vector3 hitPoint = ray.GetPoint(distance);
+
+            Vector3 projectileDirection = hitPoint - firePoint.position;
+
+            Quaternion projectileRotation = Quaternion.LookRotation(projectileDirection);
+
+            if (projectilePrefab != null && firePoint != null)
+            {
+                Instantiate(projectilePrefab, firePoint.position, projectileRotation);
+            }
         }
     }
 
