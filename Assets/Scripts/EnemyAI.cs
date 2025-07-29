@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (GameManager.instance != null)
         {
-            GameManager.instance.OnEnemyDied();
+            GameManager.instance.OnEnemyDied(this.gameObject);
         }
         Destroy(gameObject);
     }
