@@ -360,6 +360,7 @@
 "Assets/Scripts/EnemyAI.cs"
 "Assets/Scripts/FaceCamera.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/KetchupPowerUp.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/ProjectileScript.cs"
 "Assets/Scripts/UIManager.cs"

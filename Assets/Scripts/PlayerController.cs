@@ -97,4 +97,17 @@ public class PlayerController : MonoBehaviour
             uiManager.ShowLoseScreen();
         }
     }
+
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+        Debug.Log("Jugador curado. Vida actual: " + currentHealth);
+    }
 }

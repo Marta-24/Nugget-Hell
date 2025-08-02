@@ -6,6 +6,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Loot")]
+    [Range(0, 1)]
+    public float dropChance = 0.25f;
+    public GameObject ketchupPrefab;
+
     [Header("Salud")]
     public int maxHealth = 3;
 
@@ -13,9 +18,15 @@ public class EnemyAI : MonoBehaviour
     public GameObject healthBarUI;
     public RectTransform healthBarFillRect;
 
+    [Header("Combate")]
+    public float attackCooldown = 2f;
+    public float knockbackForce = 5f;
+
     private int currentHealth;
     private Transform target;
     private NavMeshAgent agent;
+    private bool canAttack = true;
+    private Rigidbody rb;
 
     void Start()
     {
@@ -23,6 +34,8 @@ public class EnemyAI : MonoBehaviour
         healthBarUI.SetActive(false);
 
         agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -32,7 +45,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (target != null)
+        if (target != null && agent.enabled)
         {
             agent.SetDestination(target.position);
         }
@@ -58,6 +71,14 @@ public class EnemyAI : MonoBehaviour
 
     private void Die()
     {
+        if (Random.value <= dropChance)
+        {
+            if (ketchupPrefab != null)
+            {
+                Instantiate(ketchupPrefab, transform.position, Quaternion.identity);
+            }
+        }
+
         if (GameManager.instance != null)
         {
             GameManager.instance.OnEnemyDied(this.gameObject);
@@ -65,30 +86,32 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (canAttack && collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
-            {
-                player.TakeDamage(1);
-            }
-
-            StartCoroutine(HandleCollision());
+            StartCoroutine(Attack(collision.gameObject));
         }
     }
 
-    IEnumerator HandleCollision()
+    IEnumerator Attack(GameObject playerObject)
     {
-        agent.enabled = false;
+        canAttack = false;
 
-        yield return new WaitForSeconds(0.1f);
-
-        if (this != null)
+        if (playerObject.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            agent.enabled = true;
-
+            player.TakeDamage(1);
         }
+
+        if (rb != null)
+        {
+            Vector3 direction = (transform.position - playerObject.transform.position).normalized;
+            direction.y = 0;
+            rb.AddForce(direction * knockbackForce, ForceMode.Impulse);
+        }
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        canAttack = true;
     }
 }
