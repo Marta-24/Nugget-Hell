@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Loot")]
     [Range(0, 1)]
     public float dropChance = 0.25f;
-    public GameObject ketchupPrefab;
+    public GameObject[] powerUpPrefabs;
 
     [Header("Salud")]
     public int maxHealth = 3;
@@ -73,9 +73,10 @@ public class EnemyAI : MonoBehaviour
     {
         if (Random.value <= dropChance)
         {
-            if (ketchupPrefab != null)
+            if (powerUpPrefabs.Length > 0)
             {
-                Instantiate(ketchupPrefab, transform.position, Quaternion.identity);
+                int randomIndex = Random.Range(0, powerUpPrefabs.Length);
+                Instantiate(powerUpPrefabs[randomIndex], transform.position, Quaternion.identity);
             }
         }
 

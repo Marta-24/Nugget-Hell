@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class KetchupPowerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
+    public enum PowerUpType { Ketchup, Mustard }
+    public PowerUpType type;
+
     public float rotationSpeed = 50f;
 
     void Update()
@@ -13,13 +16,11 @@ public class KetchupPowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
+            if (other.TryGetComponent<PlayerController>(out PlayerController player))
             {
-                player.Heal(1);
+                player.ActivatePowerUp(type);
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
         }
     }
 }

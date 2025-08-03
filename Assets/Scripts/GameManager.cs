@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [System.Serializable]
+    [Header("Prefabs para Debug")]
+    public GameObject ketchupPrefab_Debug;
     public class Wave
     {
         public int enemyCount;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public GameObject mustardPrefab_Debug;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -36,9 +39,47 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!isSpawningWave && activeEnemies.Count == 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            StartNextWave();
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null)
+            {
+                Debug.Log("DEBUG: Jugador recibe 1 de daño.");
+                player.TakeDamage(1);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null && enemyPrefab != null)
+            {
+                Vector3 spawnPosition = player.transform.position + new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
+                Debug.Log("DEBUG: Spawneando enemigo en " + spawnPosition);
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null && ketchupPrefab_Debug != null)
+            {
+                Vector3 spawnPosition = player.transform.position + new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
+                Debug.Log("DEBUG: Spawneando Ketchup en " + spawnPosition);
+                Instantiate(ketchupPrefab_Debug, spawnPosition, Quaternion.identity);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null && mustardPrefab_Debug != null)
+            {
+                Vector3 spawnPosition = player.transform.position + new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
+                Debug.Log("DEBUG: Spawneando Mostaza en " + spawnPosition);
+                Instantiate(mustardPrefab_Debug, spawnPosition, Quaternion.identity);
+            }
         }
     }
 

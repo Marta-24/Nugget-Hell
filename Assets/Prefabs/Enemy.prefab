@@ -336,11 +336,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e92b696b0eacd4984bc991cbcbe1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropChance: 0.5
+  powerUpPrefabs:
+  - {fileID: 2115978013776355820, guid: 19ae97d9c1c619047851c9eec0565831, type: 3}
+  - {fileID: 3980456133445730533, guid: 67ad63a25184e014e965d9c5d13ce981, type: 3}
   maxHealth: 3
   healthBarUI: {fileID: 3236379566814323714}
   healthBarFillRect: {fileID: 1451772791318807919}
-  dropChance: 0.5
-  ketchupPrefab: {fileID: 2909925159048297444, guid: 67ad63a25184e014e965d9c5d13ce981, type: 3}
+  attackCooldown: 2
+  knockbackForce: 5
 --- !u!54 &1361061099464473067
 Rigidbody:
   m_ObjectHideFlags: 0

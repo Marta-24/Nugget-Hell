@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
     private Camera mainCamera;
 
+    private int shieldHits = 0;
+    private const int MAX_SHIELD_HITS = 3;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         if (uiManager != null)
         {
-            uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+            uiManager.UpdatePlayerHealth(currentHealth, maxHealth, shieldHits);
         }
     }
 
@@ -78,8 +81,17 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+        if (shieldHits > 0)
+        {
+            shieldHits--;
+            Debug.Log("Golpe absorbido. Golpes de escudo restantes: " + shieldHits);
+        }
+        else
+        {
+            currentHealth -= damage;
+        }
+
+        uiManager.UpdatePlayerHealth(currentHealth, maxHealth, shieldHits);
 
         if (currentHealth <= 0)
         {
@@ -98,6 +110,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ActivatePowerUp(PowerUp.PowerUpType type)
+    {
+        if (type == PowerUp.PowerUpType.Ketchup)
+        {
+            currentHealth += 1;
+            if (currentHealth > maxHealth) currentHealth = maxHealth;
+            Debug.Log("Ketchup recogido! Vida actual: " + currentHealth);
+        }
+        else if (type == PowerUp.PowerUpType.Mustard)
+        {
+            shieldHits = 3;
+            Debug.Log("Mostaza recogida! Escudo de 3 golpes activado.");
+        }
+
+        uiManager.UpdatePlayerHealth(currentHealth, maxHealth, shieldHits);
+    }
+
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
@@ -107,7 +136,7 @@ public class PlayerController : MonoBehaviour
             currentHealth = maxHealth;
         }
 
-        uiManager.UpdatePlayerHealth(currentHealth, maxHealth);
+        uiManager.UpdatePlayerHealth(currentHealth, maxHealth, shieldHits);
         Debug.Log("Jugador curado. Vida actual: " + currentHealth);
     }
 }

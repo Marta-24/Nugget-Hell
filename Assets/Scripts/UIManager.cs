@@ -11,14 +11,28 @@ public class UIManager : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
-    public void UpdatePlayerHealth(int currentHealth, int maxHealth)
+    [Header("Colores de la Barra de Vida")]
+    public Color healthColor = Color.green;
+    public Color shieldColor = Color.yellow;
+    public void UpdatePlayerHealth(int currentHealth, int maxHealth, int currentShieldHits)
     {
-        if (playerHealthFillRect != null)
+        if (playerHealthFillRect == null) return;
+
+        Image fillImage = playerHealthFillRect.GetComponent<Image>();
+        if (fillImage == null) return;
+
+        if (currentShieldHits > 0)
         {
-            float healthPercent = (float)currentHealth / maxHealth;
-            if (healthPercent < 0) healthPercent = 0;
-            playerHealthFillRect.localScale = new Vector3(healthPercent, 1, 1);
+            fillImage.color = shieldColor;
         }
+        else
+        {
+            fillImage.color = healthColor;
+        }
+
+        float healthPercent = (float)currentHealth / maxHealth;
+        if (healthPercent < 0) healthPercent = 0;
+        playerHealthFillRect.localScale = new Vector3(healthPercent, 1, 1);
     }
 
     public void ShowWinScreen()
